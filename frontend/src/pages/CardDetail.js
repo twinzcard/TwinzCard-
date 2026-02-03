@@ -63,39 +63,6 @@ const CardDetail = () => {
 
             <div className="mb-4 md:mb-8">
               <h3 className="text-xs font-semibold text-gray-400 mb-2 md:mb-3 uppercase tracking-wider">
-                {hasMultipleAccountTypes ? t('selectAccountType') : t('accountTypes')}
-              </h3>
-              {hasMultipleAccountTypes ? (
-                <div className="grid grid-cols-2 gap-2 md:gap-3">
-                  {card.accountTypes.map((type) => (
-                    <button
-                      key={type}
-                      onClick={() => setSelectedAccountType(type)}
-                      className={selectedAccountType === type
-                        ? 'px-3 md:px-4 py-2 md:py-3 rounded-lg text-xs md:text-base font-semibold transition-all duration-300 border-2 bg-[#ff8800] border-[#ff8800] text-white shadow-lg shadow-[#ff8800]/30'
-                        : 'px-3 md:px-4 py-2 md:py-3 rounded-lg text-xs md:text-base font-semibold transition-all duration-300 border-2 bg-[#1a1a1b] border-[#ff8800]/30 text-gray-300 hover:border-[#ff8800]/60 hover:bg-[#ff8800]/5'
-                      }
-                    >
-                      {type === 'US' ? '🇺🇸 ' + t('usAccount') : '🇶🇦 ' + t('qatarAccount')}
-                    </button>
-                  ))}
-                </div>
-              ) : (
-                <div className="flex flex-wrap gap-1.5 md:gap-3">
-                  {card.accountTypes.map((type) => (
-                    <span
-                      key={type}
-                      className="px-2 md:px-4 py-1 md:py-2 bg-[#ff8800]/10 text-[#ff8800] rounded-lg text-xs md:text-base font-medium border border-[#ff8800]/30"
-                    >
-                      {type === 'US' ? '🇺🇸 ' + t('usAccount') : '🇶🇦 ' + t('qatarAccount')}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div className="mb-4 md:mb-8">
-              <h3 className="text-xs font-semibold text-gray-400 mb-2 md:mb-3 uppercase tracking-wider">
                 {t('selectAmount')}
               </h3>
               <div className="grid grid-cols-3 gap-2 md:gap-4">
@@ -126,6 +93,39 @@ const CardDetail = () => {
                   );
                 })}
               </div>
+            </div>
+
+            <div className="mb-4 md:mb-8">
+              <h3 className="text-xs font-semibold text-gray-400 mb-2 md:mb-3 uppercase tracking-wider">
+                {hasMultipleAccountTypes ? t('selectAccountType') : t('accountTypes')}
+              </h3>
+              {hasMultipleAccountTypes ? (
+                <div className="grid grid-cols-2 gap-2 md:gap-3">
+                  {card.accountTypes.map((type) => (
+                    <button
+                      key={type}
+                      onClick={() => setSelectedAccountType(type)}
+                      className={selectedAccountType === type
+                        ? 'px-3 md:px-4 py-2 md:py-3 rounded-lg text-xs md:text-base font-semibold transition-all duration-300 border-2 bg-[#ff8800] border-[#ff8800] text-white shadow-lg shadow-[#ff8800]/30'
+                        : 'px-3 md:px-4 py-2 md:py-3 rounded-lg text-xs md:text-base font-semibold transition-all duration-300 border-2 bg-[#1a1a1b] border-[#ff8800]/30 text-gray-300 hover:border-[#ff8800]/60 hover:bg-[#ff8800]/5'
+                      }
+                    >
+                      {type === 'US' ? '🇺🇸 ' + t('usAccount') : '🇶🇦 ' + t('qatarAccount')}
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <div className="flex flex-wrap gap-1.5 md:gap-3">
+                  {card.accountTypes.map((type) => (
+                    <span
+                      key={type}
+                      className="px-2 md:px-4 py-1 md:py-2 bg-[#ff8800]/10 text-[#ff8800] rounded-lg text-xs md:text-base font-medium border border-[#ff8800]/30"
+                    >
+                      {type === 'US' ? '🇺🇸 ' + t('usAccount') : '🇶🇦 ' + t('qatarAccount')}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
 
             <button
