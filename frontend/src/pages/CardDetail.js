@@ -10,6 +10,9 @@ const CardDetail = () => {
   const { t } = useTranslation();
   const card = getCardById(cardId);
   const [selectedAmount, setSelectedAmount] = useState(null);
+  const [selectedAccountType, setSelectedAccountType] = useState(
+    card && card.accountTypes.length > 0 ? card.accountTypes[0] : 'US'
+  );
 
   if (!card) {
     return <Navigate to="/" replace />;
@@ -22,6 +25,7 @@ const CardDetail = () => {
   const amountOptions = card.amounts || [];
   const redeemStepKeys = card.redeemSteps || [];
   const noteKeys = card.notes || [];
+  const hasMultipleAccountTypes = card.accountTypes && card.accountTypes.length > 1;
 
   return (
     <div className="min-h-screen bg-[#0f0f10] pt-16 md:pt-24 pb-8 md:pb-16 px-3 md:px-4">
@@ -59,18 +63,48 @@ const CardDetail = () => {
 
             <div className="mb-4 md:mb-8">
               <h3 className="text-xs font-semibold text-gray-400 mb-2 md:mb-3 uppercase tracking-wider">
-                {t('accountTypes')}
+                {hasMultipleAccountTypes ? t('selectAccountType') : t('accountTypes')}
               </h3>
-              <div className="flex flex-wrap gap-1.5 md:gap-3">
-                {card.accountTypes.map((type) => (
-                  <span
-                    key={type}
-                    className="px-2 md:px-4 py-1 md:py-2 bg-[#ff8800]/10 text-[#ff8800] rounded-lg text-xs md:text-base font-medium border border-[#ff8800]/30"
-                  >
-                    {type === 'US' ? t('usAccount') : t('qatarAccount')}
-                  </span>
-                ))}
-              </div>
+              {hasMultipleAccountTypes ? (
+                <div className="grid grid-cols-2 gap-2 md:gap-3">
+                  {card.accountTypes.map((type) => {
+                    const isSelected = selectedAccountType === type;
+                    return (
+                      <button
+                        key={type}
+                        onClick={() => setSelectedAccountType(type)}
+                        className={`relative px-3 md:px-4 py-2 md:py-3 rounded-lg text-xs md:text-base font-semibold transition-all duration-300 border-2 ${
+                          isSelected
+                            ? 'bg-[#ff8800] border-[#ff8800] text-white shadow-lg shadow-[#ff8800]/30'
+                            : 'bg-[#1a1a1b] border-[#ff8800]/30 text-gray-300 hover:border-[#ff8800]/60 hover:bg-[#ff8800]/5'
+                        }`}
+                      >
+                        {isSelected && (
+                          <div className="absolute top-1 right-1 md:top-2 md:right-2 w-3.5 h-3.5 md:w-4 md:h-4 bg-white rounded-full flex items-center justify-center">
+                            <Check className="w-2 h-2 md:w-2.5 md:h-2.5 text-[#ff8800]" />
+                          </div>
+                        )}
+                        <div className="flex items-center justify-center space-x-1 md:space-x-2">
+                          <span>{type === 'US' ? '🇺🇸' : '🇶🇦'}</span>
+                          <span>{type === 'US' ? t('usAccount') : t('qatarAccount')}</span>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="flex flex-wrap gap-1.5 md:gap-3">
+                  {card.accountTypes.map((type) => (
+                    <span
+                      key={type}
+                      className="px-2 md:px-4 py-1 md:py-2 bg-[#ff8800]/10 text-[#ff8800] rounded-lg text-xs md:text-base font-medium border border-[#ff8800]/30 flex items-center space-x-1.5"
+                    >
+                      <span>{type === 'US' ? '🇺🇸' : '🇶🇦'}</span>
+                      <span>{type === 'US' ? t('usAccount') : t('qatarAccount')}</span>
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="mb-4 md:mb-8">
