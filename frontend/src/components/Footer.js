@@ -16,8 +16,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#0a0a0b] border-t border-[#ff8800]/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
           {/* Brand Section */}
           <div>
             <Link to="/" className="flex items-center space-x-2 mb-3 md:mb-4 group">
@@ -53,28 +53,6 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Social Links */}
-          <div>
-            <h3 className="text-white font-semibold mb-3 md:mb-4 text-base md:text-lg">{t('followUs')}</h3>
-            <div className="flex space-x-3 md:space-x-4">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-9 h-9 md:w-10 md:h-10 rounded-lg bg-[#ff8800]/10 hover:bg-[#ff8800]/20 flex items-center justify-center text-[#ff8800] transition-colors duration-300"
-                    aria-label={social.label}
-                  >
-                    <Icon className="w-4 h-4 md:w-5 md:h-5" />
-                  </a>
-                );
-              })}
-            </div>
           </div>
         </div>
 
