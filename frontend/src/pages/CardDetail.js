@@ -9,14 +9,14 @@ const CardDetail = () => {
   const cardId = params.id;
   const { t } = useTranslation();
   const card = getCardById(cardId);
+  
+  const defaultAccountType = card && card.accountTypes && card.accountTypes.length > 0 ? card.accountTypes[0] : 'US';
   const [selectedAmount, setSelectedAmount] = useState(null);
+  const [selectedAccountType, setSelectedAccountType] = useState(defaultAccountType);
 
   if (!card) {
     return <Navigate to="/" replace />;
   }
-
-  const defaultAccountType = card.accountTypes && card.accountTypes.length > 0 ? card.accountTypes[0] : 'US';
-  const [selectedAccountType, setSelectedAccountType] = useState(defaultAccountType);
 
   const handleBuyNow = () => {
     window.open(card.affiliateLink, '_blank', 'noopener,noreferrer');
