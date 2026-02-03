@@ -49,6 +49,15 @@ const Home = () => {
 
         <div className="max-w-7xl mx-auto relative z-10 w-full">
           <div className="text-center">
+            {/* Logo */}
+            <div className="flex justify-center mb-6 md:mb-8">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_gaming-cards-qa/artifacts/kzyugu67_D613799F-3331-4B7C-A9AB-55928EB12F62.png"
+                alt="TwinzCard Logo"
+                className="w-64 h-auto md:w-96 lg:w-[28rem] drop-shadow-2xl animate-fadeIn"
+              />
+            </div>
+            
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-3 md:mb-6 leading-tight px-1">
               {t('heroTitle')}
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#ff8800] to-[#ff6600] mt-1 md:mt-2">

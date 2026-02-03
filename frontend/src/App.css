@@ -57,6 +57,10 @@ html {
   animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out;
+}
+
 .delay-700 {
   animation-delay: 700ms;
 }
