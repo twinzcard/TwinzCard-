@@ -24,19 +24,19 @@ const CardDetail = () => {
   const noteKeys = card.notes || [];
 
   return (
-    <div className="min-h-screen bg-[#0f0f10] pt-24 pb-16 px-4">
+    <div className="min-h-screen bg-[#0f0f10] pt-20 md:pt-24 pb-12 md:pb-16 px-4">
       <div className="max-w-6xl mx-auto">
         <Link
           to="/"
-          className="inline-flex items-center space-x-2 text-gray-400 hover:text-[#ff8800] transition-colors duration-300 mb-8 group"
+          className="inline-flex items-center space-x-2 text-gray-400 hover:text-[#ff8800] transition-colors duration-300 mb-6 md:mb-8 group"
         >
-          <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
-          <span>{t('backToHome')}</span>
+          <ArrowLeft className="w-4 h-4 md:w-5 md:h-5 group-hover:-translate-x-1 transition-transform duration-300" />
+          <span className="text-sm md:text-base">{t('backToHome')}</span>
         </Link>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-16">
           <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden border border-[#ff8800]/20 shadow-2xl shadow-[#ff8800]/10">
+            <div className="relative rounded-xl md:rounded-2xl overflow-hidden border border-[#ff8800]/20 shadow-2xl shadow-[#ff8800]/10">
               <img
                 src={card.image}
                 alt={card.name}
@@ -47,25 +47,25 @@ const CardDetail = () => {
           </div>
 
           <div className="flex flex-col justify-center">
-            <h1 className="text-5xl font-bold text-white mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
               {card.name}
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#ff8800] to-[#ff6600] mt-2">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#ff8800] to-[#ff6600] mt-2 text-2xl md:text-3xl lg:text-4xl">
                 {t('cardDetails')}
               </span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed">
               {t(card.descriptionKey)}
             </p>
 
-            <div className="mb-8">
-              <h3 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wider">
+            <div className="mb-6 md:mb-8">
+              <h3 className="text-xs md:text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wider">
                 {t('accountTypes')}
               </h3>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2 md:gap-3">
                 {card.accountTypes.map((type) => (
                   <span
                     key={type}
-                    className="px-4 py-2 bg-[#ff8800]/10 text-[#ff8800] rounded-lg font-medium border border-[#ff8800]/30"
+                    className="px-3 md:px-4 py-1.5 md:py-2 bg-[#ff8800]/10 text-[#ff8800] rounded-lg text-sm md:text-base font-medium border border-[#ff8800]/30"
                   >
                     {type === 'US' ? t('usAccount') : t('qatarAccount')}
                   </span>
@@ -73,11 +73,11 @@ const CardDetail = () => {
               </div>
             </div>
 
-            <div className="mb-8">
-              <h3 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wider">
+            <div className="mb-6 md:mb-8">
+              <h3 className="text-xs md:text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wider">
                 {t('selectAmount')}
               </h3>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-3 md:gap-4">
                 {amountOptions.map((amount) => {
                   const isSelected = selectedAmount === amount;
                   const priceInQAR = card.priceQAR[amount];
@@ -86,20 +86,20 @@ const CardDetail = () => {
                     <button
                       key={amount}
                       onClick={() => setSelectedAmount(amount)}
-                      className={`relative p-4 rounded-xl border-2 transition-all duration-300 ${
+                      className={`relative p-3 md:p-4 rounded-lg md:rounded-xl border-2 transition-all duration-300 ${
                         isSelected
                           ? 'border-[#ff8800] bg-[#ff8800]/10'
                           : 'border-[#ff8800]/20 bg-[#1a1a1b] hover:border-[#ff8800]/50'
                       }`}
                     >
                       {isSelected && (
-                        <div className="absolute top-2 right-2 w-5 h-5 bg-[#ff8800] rounded-full flex items-center justify-center">
-                          <Check className="w-3 h-3 text-white" />
+                        <div className="absolute top-1 right-1 md:top-2 md:right-2 w-4 h-4 md:w-5 md:h-5 bg-[#ff8800] rounded-full flex items-center justify-center">
+                          <Check className="w-2.5 h-2.5 md:w-3 md:h-3 text-white" />
                         </div>
                       )}
                       <div className="text-center">
-                        <p className="text-2xl font-bold text-white mb-1">${amount}</p>
-                        <p className="text-sm text-gray-400">{priceInQAR} {t('qar')}</p>
+                        <p className="text-lg md:text-xl lg:text-2xl font-bold text-white mb-0.5 md:mb-1">${amount}</p>
+                        <p className="text-xs md:text-sm text-gray-400">{priceInQAR} {t('qar')}</p>
                       </div>
                     </button>
                   );
@@ -109,83 +109,83 @@ const CardDetail = () => {
 
             <button
               onClick={handleBuyNow}
-              className="group w-full py-4 bg-gradient-to-r from-[#ff8800] to-[#ff6600] text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-[#ff8800]/50 transition-all duration-300 flex items-center justify-center space-x-3"
+              className="group w-full py-3 md:py-4 bg-gradient-to-r from-[#ff8800] to-[#ff6600] text-white rounded-lg md:rounded-xl font-bold text-base md:text-lg hover:shadow-2xl hover:shadow-[#ff8800]/50 transition-all duration-300 flex items-center justify-center space-x-2 md:space-x-3"
             >
-              <ShoppingCart className="w-6 h-6" />
+              <ShoppingCart className="w-5 h-5 md:w-6 md:h-6" />
               <span>{t('buyNow')}</span>
-              <ExternalLink className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+              <ExternalLink className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
             </button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-2xl border border-[#ff8800]/20">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-              <div className="w-2 h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-3"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+          <div className="p-6 md:p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-xl md:rounded-2xl border border-[#ff8800]/20">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 flex items-center">
+              <div className="w-1.5 md:w-2 h-6 md:h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-2 md:mr-3"></div>
               {t('aboutThisCard')}
             </h2>
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-sm md:text-base text-gray-300 leading-relaxed">
               {t(card.aboutKey)}
             </p>
           </div>
 
-          <div className="p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-2xl border border-[#ff8800]/20">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-              <div className="w-2 h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-3"></div>
+          <div className="p-6 md:p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-xl md:rounded-2xl border border-[#ff8800]/20">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 flex items-center">
+              <div className="w-1.5 md:w-2 h-6 md:h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-2 md:mr-3"></div>
               {t('howToRedeem')}
             </h2>
-            <ol className="space-y-3">
+            <ol className="space-y-2 md:space-y-3">
               {redeemStepKeys.map((stepKey, idx) => (
-                <li key={idx} className="flex items-start space-x-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-sm font-bold">
+                <li key={idx} className="flex items-start space-x-2 md:space-x-3">
+                  <span className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">
                     {idx + 1}
                   </span>
-                  <span className="text-gray-300 leading-relaxed">{t(stepKey)}</span>
+                  <span className="text-sm md:text-base text-gray-300 leading-relaxed">{t(stepKey)}</span>
                 </li>
               ))}
             </ol>
           </div>
 
-          <div className="p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-2xl border border-[#ff8800]/20">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-              <div className="w-2 h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-3"></div>
+          <div className="p-6 md:p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-xl md:rounded-2xl border border-[#ff8800]/20">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 flex items-center">
+              <div className="w-1.5 md:w-2 h-6 md:h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-2 md:mr-3"></div>
               {t('importantNotes')}
             </h2>
-            <ul className="space-y-3">
+            <ul className="space-y-2 md:space-y-3">
               {noteKeys.map((noteKey, idx) => (
-                <li key={idx} className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-2 h-2 bg-[#ff8800] rounded-full mt-2"></div>
-                  <span className="text-gray-300 leading-relaxed">{t(noteKey)}</span>
+                <li key={idx} className="flex items-start space-x-2 md:space-x-3">
+                  <div className="flex-shrink-0 w-1.5 h-1.5 md:w-2 md:h-2 bg-[#ff8800] rounded-full mt-1.5 md:mt-2"></div>
+                  <span className="text-sm md:text-base text-gray-300 leading-relaxed">{t(noteKey)}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-2xl border border-[#ff8800]/20">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-              <div className="w-2 h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-3"></div>
+          <div className="p-6 md:p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-xl md:rounded-2xl border border-[#ff8800]/20">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 flex items-center">
+              <div className="w-1.5 md:w-2 h-6 md:h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-2 md:mr-3"></div>
               {t('purchaseProcess')}
             </h2>
-            <ol className="space-y-3">
-              <li className="flex items-start space-x-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
-                <span className="text-gray-300 leading-relaxed">{t('purchaseStep1')}</span>
+            <ol className="space-y-2 md:space-y-3">
+              <li className="flex items-start space-x-2 md:space-x-3">
+                <span className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">1</span>
+                <span className="text-sm md:text-base text-gray-300 leading-relaxed">{t('purchaseStep1')}</span>
               </li>
-              <li className="flex items-start space-x-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
-                <span className="text-gray-300 leading-relaxed">{t('purchaseStep2')}</span>
+              <li className="flex items-start space-x-2 md:space-x-3">
+                <span className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">2</span>
+                <span className="text-sm md:text-base text-gray-300 leading-relaxed">{t('purchaseStep2')}</span>
               </li>
-              <li className="flex items-start space-x-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
-                <span className="text-gray-300 leading-relaxed">{t('purchaseStep3')}</span>
+              <li className="flex items-start space-x-2 md:space-x-3">
+                <span className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">3</span>
+                <span className="text-sm md:text-base text-gray-300 leading-relaxed">{t('purchaseStep3')}</span>
               </li>
-              <li className="flex items-start space-x-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
-                <span className="text-gray-300 leading-relaxed">{t('purchaseStep4')}</span>
+              <li className="flex items-start space-x-2 md:space-x-3">
+                <span className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">4</span>
+                <span className="text-sm md:text-base text-gray-300 leading-relaxed">{t('purchaseStep4')}</span>
               </li>
-              <li className="flex items-start space-x-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-sm font-bold">5</span>
-                <span className="text-gray-300 leading-relaxed">{t('purchaseStep5')}</span>
+              <li className="flex items-start space-x-2 md:space-x-3">
+                <span className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">5</span>
+                <span className="text-sm md:text-base text-gray-300 leading-relaxed">{t('purchaseStep5')}</span>
               </li>
             </ol>
           </div>
