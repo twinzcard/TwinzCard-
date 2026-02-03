@@ -119,73 +119,73 @@ const CardDetail = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
-          <div className="p-6 md:p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-xl md:rounded-2xl border border-[#ff8800]/20">
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 flex items-center">
-              <div className="w-1.5 md:w-2 h-6 md:h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-2 md:mr-3"></div>
+          <div className="p-4 md:p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-lg md:rounded-2xl border border-[#ff8800]/20">
+            <h2 className="text-base md:text-2xl font-bold text-white mb-2 md:mb-4 flex items-center">
+              <div className="w-1 md:w-2 h-5 md:h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-2 md:mr-3"></div>
               {t('aboutThisCard')}
             </h2>
-            <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+            <p className="text-xs md:text-base text-gray-300 leading-relaxed">
               {t(card.aboutKey)}
             </p>
           </div>
 
-          <div className="p-6 md:p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-xl md:rounded-2xl border border-[#ff8800]/20">
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 flex items-center">
-              <div className="w-1.5 md:w-2 h-6 md:h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-2 md:mr-3"></div>
+          <div className="p-4 md:p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-lg md:rounded-2xl border border-[#ff8800]/20">
+            <h2 className="text-base md:text-2xl font-bold text-white mb-2 md:mb-4 flex items-center">
+              <div className="w-1 md:w-2 h-5 md:h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-2 md:mr-3"></div>
               {t('howToRedeem')}
             </h2>
             <ol className="space-y-2 md:space-y-3">
               {redeemStepKeys.map((stepKey, idx) => (
-                <li key={idx} className="flex items-start space-x-2 md:space-x-3">
-                  <span className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">
+                <li key={idx} className="flex items-start space-x-2">
+                  <span className="flex-shrink-0 w-4 h-4 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">
                     {idx + 1}
                   </span>
-                  <span className="text-sm md:text-base text-gray-300 leading-relaxed">{t(stepKey)}</span>
+                  <span className="text-xs md:text-base text-gray-300 leading-relaxed">{t(stepKey)}</span>
                 </li>
               ))}
             </ol>
           </div>
 
-          <div className="p-6 md:p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-xl md:rounded-2xl border border-[#ff8800]/20">
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 flex items-center">
-              <div className="w-1.5 md:w-2 h-6 md:h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-2 md:mr-3"></div>
+          <div className="p-4 md:p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-lg md:rounded-2xl border border-[#ff8800]/20">
+            <h2 className="text-base md:text-2xl font-bold text-white mb-2 md:mb-4 flex items-center">
+              <div className="w-1 md:w-2 h-5 md:h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-2 md:mr-3"></div>
               {t('importantNotes')}
             </h2>
             <ul className="space-y-2 md:space-y-3">
               {noteKeys.map((noteKey, idx) => (
-                <li key={idx} className="flex items-start space-x-2 md:space-x-3">
-                  <div className="flex-shrink-0 w-1.5 h-1.5 md:w-2 md:h-2 bg-[#ff8800] rounded-full mt-1.5 md:mt-2"></div>
-                  <span className="text-sm md:text-base text-gray-300 leading-relaxed">{t(noteKey)}</span>
+                <li key={idx} className="flex items-start space-x-2">
+                  <div className="flex-shrink-0 w-1.5 h-1.5 md:w-2 md:h-2 bg-[#ff8800] rounded-full mt-1.5"></div>
+                  <span className="text-xs md:text-base text-gray-300 leading-relaxed">{t(noteKey)}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="p-6 md:p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-xl md:rounded-2xl border border-[#ff8800]/20">
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 flex items-center">
-              <div className="w-1.5 md:w-2 h-6 md:h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-2 md:mr-3"></div>
+          <div className="p-4 md:p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-lg md:rounded-2xl border border-[#ff8800]/20">
+            <h2 className="text-base md:text-2xl font-bold text-white mb-2 md:mb-4 flex items-center">
+              <div className="w-1 md:w-2 h-5 md:h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-2 md:mr-3"></div>
               {t('purchaseProcess')}
             </h2>
             <ol className="space-y-2 md:space-y-3">
-              <li className="flex items-start space-x-2 md:space-x-3">
-                <span className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">1</span>
-                <span className="text-sm md:text-base text-gray-300 leading-relaxed">{t('purchaseStep1')}</span>
+              <li className="flex items-start space-x-2">
+                <span className="flex-shrink-0 w-4 h-4 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">1</span>
+                <span className="text-xs md:text-base text-gray-300 leading-relaxed">{t('purchaseStep1')}</span>
               </li>
-              <li className="flex items-start space-x-2 md:space-x-3">
-                <span className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">2</span>
-                <span className="text-sm md:text-base text-gray-300 leading-relaxed">{t('purchaseStep2')}</span>
+              <li className="flex items-start space-x-2">
+                <span className="flex-shrink-0 w-4 h-4 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">2</span>
+                <span className="text-xs md:text-base text-gray-300 leading-relaxed">{t('purchaseStep2')}</span>
               </li>
-              <li className="flex items-start space-x-2 md:space-x-3">
-                <span className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">3</span>
-                <span className="text-sm md:text-base text-gray-300 leading-relaxed">{t('purchaseStep3')}</span>
+              <li className="flex items-start space-x-2">
+                <span className="flex-shrink-0 w-4 h-4 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">3</span>
+                <span className="text-xs md:text-base text-gray-300 leading-relaxed">{t('purchaseStep3')}</span>
               </li>
-              <li className="flex items-start space-x-2 md:space-x-3">
-                <span className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">4</span>
-                <span className="text-sm md:text-base text-gray-300 leading-relaxed">{t('purchaseStep4')}</span>
+              <li className="flex items-start space-x-2">
+                <span className="flex-shrink-0 w-4 h-4 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">4</span>
+                <span className="text-xs md:text-base text-gray-300 leading-relaxed">{t('purchaseStep4')}</span>
               </li>
-              <li className="flex items-start space-x-2 md:space-x-3">
-                <span className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">5</span>
-                <span className="text-sm md:text-base text-gray-300 leading-relaxed">{t('purchaseStep5')}</span>
+              <li className="flex items-start space-x-2">
+                <span className="flex-shrink-0 w-4 h-4 md:w-6 md:h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">5</span>
+                <span className="text-xs md:text-base text-gray-300 leading-relaxed">{t('purchaseStep5')}</span>
               </li>
             </ol>
           </div>
