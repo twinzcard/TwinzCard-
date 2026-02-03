@@ -27,10 +27,11 @@ const Footer = () => {
           {/* Brand Section */}
           <div>
             <Link to="/" className="flex items-center space-x-2 mb-3 md:mb-4 group">
-              <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gradient-to-br from-[#ff8800] to-[#ff6600] flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                <span className="text-white font-bold text-base md:text-xl">TC</span>
-              </div>
-              <span className="text-lg md:text-xl font-bold text-white">{t('siteName')}</span>
+              <img 
+                src="https://customer-assets.emergentagent.com/job_gaming-cards-qa/artifacts/kzyugu67_D613799F-3331-4B7C-A9AB-55928EB12F62.png"
+                alt="TwinzCard"
+                className="h-10 md:h-12 w-auto transform group-hover:scale-110 transition-transform duration-300"
+              />
             </Link>
             <p className="text-gray-400 text-sm mb-3 md:mb-4">
               {t('heroSubtitle')}
