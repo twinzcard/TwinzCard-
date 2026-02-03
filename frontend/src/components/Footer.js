@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Mail, Facebook, Twitter, Instagram } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -12,12 +12,6 @@ const Footer = () => {
     { path: '/privacy', label: t('privacy') },
     { path: '/terms', label: t('terms') },
     { path: '/affiliate', label: t('affiliateRules') }
-  ];
-
-  const socialLinks = [
-    { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' }
   ];
 
   return (
