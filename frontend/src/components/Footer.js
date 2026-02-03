@@ -22,22 +22,22 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#0a0a0b] border-t border-[#ff8800]/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
           {/* Brand Section */}
           <div>
-            <Link to="/" className="flex items-center space-x-2 mb-4 group">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#ff8800] to-[#ff6600] flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                <span className="text-white font-bold text-xl">TC</span>
+            <Link to="/" className="flex items-center space-x-2 mb-3 md:mb-4 group">
+              <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gradient-to-br from-[#ff8800] to-[#ff6600] flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                <span className="text-white font-bold text-base md:text-xl">TC</span>
               </div>
-              <span className="text-xl font-bold text-white">{t('siteName')}</span>
+              <span className="text-lg md:text-xl font-bold text-white">{t('siteName')}</span>
             </Link>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-gray-400 text-sm mb-3 md:mb-4">
               {t('heroSubtitle')}
             </p>
             <div className="flex items-center space-x-2 text-gray-400 text-sm">
-              <Mail className="w-4 h-4 text-[#ff8800]" />
-              <a href="mailto:Twinzcard23@outlook.sa" className="hover:text-[#ff8800] transition-colors duration-300">
+              <Mail className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#ff8800] flex-shrink-0" />
+              <a href="mailto:Twinzcard23@outlook.sa" className="hover:text-[#ff8800] transition-colors duration-300 break-all">
                 Twinzcard23@outlook.sa
               </a>
             </div>
@@ -45,13 +45,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">{t('quickLinks')}</h3>
+            <h3 className="text-white font-semibold mb-3 md:mb-4 text-base md:text-lg">{t('quickLinks')}</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-gray-400 text-sm hover:text-[#ff8800] transition-colors duration-300"
+                    className="text-gray-400 text-sm hover:text-[#ff8800] transition-colors duration-300 block"
                   >
                     {link.label}
                   </Link>
@@ -62,8 +62,8 @@ const Footer = () => {
 
           {/* Social Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">{t('followUs')}</h3>
-            <div className="flex space-x-4">
+            <h3 className="text-white font-semibold mb-3 md:mb-4 text-base md:text-lg">{t('followUs')}</h3>
+            <div className="flex space-x-3 md:space-x-4">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -72,10 +72,10 @@ const Footer = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-lg bg-[#ff8800]/10 hover:bg-[#ff8800]/20 flex items-center justify-center text-[#ff8800] transition-colors duration-300"
+                    className="w-9 h-9 md:w-10 md:h-10 rounded-lg bg-[#ff8800]/10 hover:bg-[#ff8800]/20 flex items-center justify-center text-[#ff8800] transition-colors duration-300"
                     aria-label={social.label}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-4 h-4 md:w-5 md:h-5" />
                   </a>
                 );
               })}
@@ -84,12 +84,12 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-8 border-t border-[#ff8800]/20">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400 text-sm text-center md:text-left">
+        <div className="pt-6 md:pt-8 border-t border-[#ff8800]/20">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0 text-center md:text-left">
+            <p className="text-gray-400 text-xs md:text-sm">
               © {currentYear} {t('siteName')}. {t('allRightsReserved')}
             </p>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-xs md:text-sm">
               {t('madeInQatar')}
             </p>
           </div>
