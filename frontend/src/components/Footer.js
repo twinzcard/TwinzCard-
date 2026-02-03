@@ -86,12 +86,9 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="pt-6 md:pt-8 border-t border-[#ff8800]/20">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0 text-center md:text-left">
+          <div className="flex flex-col md:flex-row justify-center items-center text-center">
             <p className="text-gray-400 text-xs md:text-sm">
               © {currentYear} {t('siteName')}. {t('allRightsReserved')}
-            </p>
-            <p className="text-gray-400 text-xs md:text-sm">
-              {t('madeInQatar')}
             </p>
           </div>
         </div>
