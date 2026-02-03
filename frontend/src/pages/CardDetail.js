@@ -10,13 +10,13 @@ const CardDetail = () => {
   const { t } = useTranslation();
   const card = getCardById(cardId);
   const [selectedAmount, setSelectedAmount] = useState(null);
-  const [selectedAccountType, setSelectedAccountType] = useState(
-    card && card.accountTypes.length > 0 ? card.accountTypes[0] : 'US'
-  );
 
   if (!card) {
     return <Navigate to="/" replace />;
   }
+
+  const defaultAccountType = card.accountTypes && card.accountTypes.length > 0 ? card.accountTypes[0] : 'US';
+  const [selectedAccountType, setSelectedAccountType] = useState(defaultAccountType);
 
   const handleBuyNow = () => {
     window.open(card.affiliateLink, '_blank', 'noopener,noreferrer');
