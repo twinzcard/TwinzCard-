@@ -128,6 +128,9 @@ Each card contains:
 - [x] Responsive design
 - [x] Card data structure
 - [x] User-provided images integration
+- [x] iPhone/Mobile optimization
+- [x] Touch-friendly UI elements
+- [x] Proper viewport configuration
 
 ### Phase 2: Affiliate Integration (Next Steps)
 - [ ] Update affiliate links with real Admitad links
@@ -168,7 +171,15 @@ Replace placeholder links in `/app/frontend/src/data/cardsData.js` with actual A
 - Currency converter widget
 - Dark/Light mode toggle
 
-## Design Guidelines Followed
+## Mobile Optimization (iPhone & Android)
+✅ Responsive breakpoints: 375px (iPhone SE), 390px (iPhone 13), 768px (Tablet), 1024px (Desktop)
+✅ Touch-friendly buttons (min 44px tap targets)
+✅ Optimized font sizes for mobile readability
+✅ Proper viewport meta tags (maximum-scale=5)
+✅ Mobile-first CSS approach
+✅ Hamburger menu for mobile navigation
+✅ Optimized spacing and padding for small screens
+✅ No horizontal scrolling on any device
 ✅ Dark theme with orange accents
 ✅ No emoji icons (using Lucide React)
 ✅ Professional glass-morphism effects
