@@ -40,35 +40,35 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-[#0f0f10]">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+      <section className="relative pt-24 md:pt-32 pb-16 md:pb-20 px-4 overflow-hidden min-h-[85vh] md:min-h-0 flex items-center">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-10 w-72 h-72 bg-[#ff8800]/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#ff6600]/10 rounded-full blur-3xl animate-pulse delay-700"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
           <div className="text-center">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight px-2">
               {t('heroTitle')}
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#ff8800] to-[#ff6600]">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#ff8800] to-[#ff6600] mt-2">
                 {t('heroSubtitle')}
               </span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed px-4">
               {t('heroDescription')}
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 px-4">
               <a
                 href="#cards"
-                className="group px-8 py-4 bg-gradient-to-r from-[#ff8800] to-[#ff6600] text-white rounded-lg font-semibold hover:shadow-2xl hover:shadow-[#ff8800]/50 transition-all duration-300 flex items-center space-x-2"
+                className="group w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#ff8800] to-[#ff6600] text-white rounded-lg font-semibold hover:shadow-2xl hover:shadow-[#ff8800]/50 transition-all duration-300 flex items-center justify-center space-x-2 text-sm md:text-base"
               >
                 <span>{t('browseCards')}</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </a>
               <a
                 href="#how-it-works"
-                className="px-8 py-4 bg-white/5 backdrop-blur-sm text-white rounded-lg font-semibold border border-[#ff8800]/30 hover:border-[#ff8800] hover:bg-white/10 transition-all duration-300"
+                className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/5 backdrop-blur-sm text-white rounded-lg font-semibold border border-[#ff8800]/30 hover:border-[#ff8800] hover:bg-white/10 transition-all duration-300 text-sm md:text-base"
               >
                 {t('learnMore')}
               </a>
@@ -78,25 +78,25 @@ const Home = () => {
       </section>
 
       {/* Cards Section */}
-      <section id="cards" className="py-20 px-4">
+      <section id="cards" className="py-12 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">
               {t('ourCards')}
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className="text-lg md:text-xl text-gray-400">
               {t('cardsDescription')}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {cardsData.map((card) => (
               <div
                 key={card.id}
-                className="group relative bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-2xl overflow-hidden border border-[#ff8800]/20 hover:border-[#ff8800] transition-all duration-500 hover:shadow-2xl hover:shadow-[#ff8800]/20 hover:-translate-y-2"
+                className="group relative bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-xl md:rounded-2xl overflow-hidden border border-[#ff8800]/20 hover:border-[#ff8800] transition-all duration-500 hover:shadow-2xl hover:shadow-[#ff8800]/20 hover:-translate-y-1 md:hover:-translate-y-2"
               >
                 {/* Card Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-40 md:h-48 overflow-hidden">
                   <img
                     src={card.image}
                     alt={card.name}
@@ -106,20 +106,20 @@ const Home = () => {
                 </div>
 
                 {/* Card Content */}
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-white mb-3">
+                <div className="p-4 md:p-6">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3">
                     {card.name}
                   </h3>
-                  <p className="text-gray-400 mb-4 leading-relaxed">
+                  <p className="text-sm md:text-base text-gray-400 mb-3 md:mb-4 leading-relaxed line-clamp-2">
                     {t(card.descriptionKey)}
                   </p>
 
                   {/* Account Types */}
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2 mb-3 md:mb-4">
                     {card.accountTypes.map((type) => (
                       <span
                         key={type}
-                        className="px-3 py-1 bg-[#ff8800]/10 text-[#ff8800] rounded-full text-sm font-medium"
+                        className="px-2 md:px-3 py-1 bg-[#ff8800]/10 text-[#ff8800] rounded-full text-xs md:text-sm font-medium"
                       >
                         {type === 'US' ? t('usAccount') : t('qatarAccount')}
                       </span>
@@ -127,18 +127,18 @@ const Home = () => {
                   </div>
 
                   {/* Price Range */}
-                  <div className="mb-6">
-                    <p className="text-sm text-gray-500 mb-1">{t('availableAmounts')}</p>
-                    <p className="text-xl font-bold text-white">
+                  <div className="mb-4 md:mb-6">
+                    <p className="text-xs md:text-sm text-gray-500 mb-1">{t('availableAmounts')}</p>
+                    <p className="text-lg md:text-xl font-bold text-white">
                       {t('priceRange')}
                     </p>
                   </div>
 
                   {/* Actions */}
-                  <div className="flex gap-3">
+                  <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
                     <Link
                       to={`/card/${card.id}`}
-                      className="flex-1 px-4 py-3 bg-white/5 backdrop-blur-sm text-white rounded-lg font-medium text-center hover:bg-white/10 transition-colors duration-300 border border-[#ff8800]/30 hover:border-[#ff8800]"
+                      className="flex-1 px-4 py-2.5 md:py-3 bg-white/5 backdrop-blur-sm text-white rounded-lg font-medium text-center hover:bg-white/10 transition-colors duration-300 border border-[#ff8800]/30 hover:border-[#ff8800] text-sm md:text-base"
                     >
                       {t('viewDetails')}
                     </Link>
@@ -146,7 +146,7 @@ const Home = () => {
                       href={card.affiliateLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 px-4 py-3 bg-gradient-to-r from-[#ff8800] to-[#ff6600] text-white rounded-lg font-semibold text-center hover:shadow-lg hover:shadow-[#ff8800]/50 transition-all duration-300 flex items-center justify-center space-x-2"
+                      className="flex-1 px-4 py-2.5 md:py-3 bg-gradient-to-r from-[#ff8800] to-[#ff6600] text-white rounded-lg font-semibold text-center hover:shadow-lg hover:shadow-[#ff8800]/50 transition-all duration-300 flex items-center justify-center space-x-2 text-sm md:text-base"
                     >
                       <span>{t('buyNow')}</span>
                       <ChevronRight className="w-4 h-4" />
@@ -160,29 +160,29 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 bg-[#0a0a0b]">
+      <section className="py-12 md:py-20 px-4 bg-[#0a0a0b]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               {t('whyChooseUs')}
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={index}
-                  className="group text-center p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-2xl border border-[#ff8800]/20 hover:border-[#ff8800] transition-all duration-300 hover:-translate-y-2"
+                  className="group text-center p-6 md:p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-xl md:rounded-2xl border border-[#ff8800]/20 hover:border-[#ff8800] transition-all duration-300 hover:-translate-y-1 md:hover:-translate-y-2"
                 >
-                  <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] rounded-2xl shadow-lg shadow-[#ff8800]/30 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-8 h-8 text-white" />
+                  <div className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 mb-4 md:mb-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] rounded-xl md:rounded-2xl shadow-lg shadow-[#ff8800]/30 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">
+                  <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className="text-sm md:text-base text-gray-400 leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
@@ -193,25 +193,25 @@ const Home = () => {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="py-20 px-4">
+      <section id="how-it-works" className="py-12 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               {t('howItWorks')}
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {steps.map((step, index) => (
               <div key={index} className="relative">
                 <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-20 h-20 mb-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] rounded-full shadow-lg shadow-[#ff8800]/30">
-                    <span className="text-3xl font-bold text-white">{step.number}</span>
+                  <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 mb-4 md:mb-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] rounded-full shadow-lg shadow-[#ff8800]/30">
+                    <span className="text-2xl md:text-3xl font-bold text-white">{step.number}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">
+                  <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">
                     {step.title}
                   </h3>
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className="text-sm md:text-base text-gray-400 leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -225,20 +225,20 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-[#0a0a0b]">
+      <section className="py-12 md:py-20 px-4 bg-[#0a0a0b]">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 px-4">
             {t('getStarted')}
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-base md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-8 px-4">
             {t('ctaDescription')}
           </p>
           <a
             href="#cards"
-            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-[#ff8800] to-[#ff6600] text-white rounded-lg font-semibold hover:shadow-2xl hover:shadow-[#ff8800]/50 transition-all duration-300"
+            className="inline-flex items-center space-x-2 px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#ff8800] to-[#ff6600] text-white rounded-lg font-semibold hover:shadow-2xl hover:shadow-[#ff8800]/50 transition-all duration-300 text-sm md:text-base"
           >
             <span>{t('shopNow')}</span>
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
           </a>
         </div>
       </section>
