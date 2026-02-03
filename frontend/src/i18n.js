@@ -28,6 +28,7 @@ const resources = {
       "buyNow": "Buy Now",
       "availableAmounts": "Available Amounts",
       "accountTypes": "Account Types",
+      "selectAccountType": "Select Account Type",
       "usAccount": "US Account",
       "qatarAccount": "Qatar Account",
       
@@ -223,6 +224,7 @@ const resources = {
       "buyNow": "اشترِ الآن",
       "availableAmounts": "الفئات المتاحة",
       "accountTypes": "أنواع الحسابات",
+      "selectAccountType": "اختر نوع الحساب",
       "usAccount": "حساب أمريكي",
       "qatarAccount": "حساب قطري",
       
