@@ -19,10 +19,13 @@ const CardDetail = () => {
     window.open(card.affiliateLink, '_blank', 'noopener,noreferrer');
   };
 
+  const amountOptions = card.amounts || [];
+  const redeemStepKeys = card.redeemSteps || [];
+  const noteKeys = card.notes || [];
+
   return (
     <div className="min-h-screen bg-[#0f0f10] pt-24 pb-16 px-4">
       <div className="max-w-6xl mx-auto">
-        {/* Back Button */}
         <Link
           to="/"
           className="inline-flex items-center space-x-2 text-gray-400 hover:text-[#ff8800] transition-colors duration-300 mb-8 group"
@@ -31,9 +34,7 @@ const CardDetail = () => {
           <span>{t('backToHome')}</span>
         </Link>
 
-        {/* Card Header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* Card Image */}
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden border border-[#ff8800]/20 shadow-2xl shadow-[#ff8800]/10">
               <img
@@ -45,7 +46,6 @@ const CardDetail = () => {
             </div>
           </div>
 
-          {/* Card Info */}
           <div className="flex flex-col justify-center">
             <h1 className="text-5xl font-bold text-white mb-6">
               {card.name}
@@ -57,7 +57,6 @@ const CardDetail = () => {
               {t(card.descriptionKey)}
             </p>
 
-            {/* Account Types */}
             <div className="mb-8">
               <h3 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wider">
                 {t('accountTypes')}
@@ -74,37 +73,40 @@ const CardDetail = () => {
               </div>
             </div>
 
-            {/* Amount Selection */}
             <div className="mb-8">
               <h3 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wider">
                 {t('selectAmount')}
               </h3>
               <div className="grid grid-cols-3 gap-4">
-                {card.amounts.map((amount) => (
-                  <button
-                    key={amount}
-                    onClick={() => setSelectedAmount(amount)}
-                    className={`relative p-4 rounded-xl border-2 transition-all duration-300 ${
-                      selectedAmount === amount
-                        ? 'border-[#ff8800] bg-[#ff8800]/10'
-                        : 'border-[#ff8800]/20 bg-[#1a1a1b] hover:border-[#ff8800]/50'
-                    }`}
-                  >
-                    {selectedAmount === amount && (
-                      <div className="absolute top-2 right-2 w-5 h-5 bg-[#ff8800] rounded-full flex items-center justify-center">
-                        <Check className="w-3 h-3 text-white" />
+                {amountOptions.map((amount) => {
+                  const isSelected = selectedAmount === amount;
+                  const priceInQAR = card.priceQAR[amount];
+                  
+                  return (
+                    <button
+                      key={amount}
+                      onClick={() => setSelectedAmount(amount)}
+                      className={`relative p-4 rounded-xl border-2 transition-all duration-300 ${
+                        isSelected
+                          ? 'border-[#ff8800] bg-[#ff8800]/10'
+                          : 'border-[#ff8800]/20 bg-[#1a1a1b] hover:border-[#ff8800]/50'
+                      }`}
+                    >
+                      {isSelected && (
+                        <div className="absolute top-2 right-2 w-5 h-5 bg-[#ff8800] rounded-full flex items-center justify-center">
+                          <Check className="w-3 h-3 text-white" />
+                        </div>
+                      )}
+                      <div className="text-center">
+                        <p className="text-2xl font-bold text-white mb-1">${amount}</p>
+                        <p className="text-sm text-gray-400">{priceInQAR} {t('qar')}</p>
                       </div>
-                    )}
-                    <div className="text-center">
-                      <p className="text-2xl font-bold text-white mb-1">${amount}</p>
-                      <p className="text-sm text-gray-400">{card.priceQAR[amount]} {t('qar')}</p>
-                    </div>
-                  </button>
-                ))}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Buy Button */}
             <button
               onClick={handleBuyNow}
               className="group w-full py-4 bg-gradient-to-r from-[#ff8800] to-[#ff6600] text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-[#ff8800]/50 transition-all duration-300 flex items-center justify-center space-x-3"
@@ -116,9 +118,7 @@ const CardDetail = () => {
           </div>
         </div>
 
-        {/* Card Details Sections */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* About This Card */}
           <div className="p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-2xl border border-[#ff8800]/20">
             <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
               <div className="w-2 h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-3"></div>
@@ -129,55 +129,64 @@ const CardDetail = () => {
             </p>
           </div>
 
-          {/* How to Redeem */}
           <div className="p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-2xl border border-[#ff8800]/20">
             <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
               <div className="w-2 h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-3"></div>
               {t('howToRedeem')}
             </h2>
             <ol className="space-y-3">
-              {card.redeemSteps.map((step, index) => (
-                <li key={index} className="flex items-start space-x-3">
+              {redeemStepKeys.map((stepKey, idx) => (
+                <li key={idx} className="flex items-start space-x-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-sm font-bold">
-                    {index + 1}
+                    {idx + 1}
                   </span>
-                  <span className="text-gray-300 leading-relaxed">{t(step)}</span>
+                  <span className="text-gray-300 leading-relaxed">{t(stepKey)}</span>
                 </li>
               ))}
             </ol>
           </div>
 
-          {/* Important Notes */}
           <div className="p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-2xl border border-[#ff8800]/20">
             <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
               <div className="w-2 h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-3"></div>
               {t('importantNotes')}
             </h2>
             <ul className="space-y-3">
-              {card.notes.map((note, index) => (
-                <li key={index} className="flex items-start space-x-3">
+              {noteKeys.map((noteKey, idx) => (
+                <li key={idx} className="flex items-start space-x-3">
                   <div className="flex-shrink-0 w-2 h-2 bg-[#ff8800] rounded-full mt-2"></div>
-                  <span className="text-gray-300 leading-relaxed">{t(note)}</span>
+                  <span className="text-gray-300 leading-relaxed">{t(noteKey)}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Purchase Process */}
           <div className="p-8 bg-gradient-to-br from-[#1a1a1b] to-[#0f0f10] rounded-2xl border border-[#ff8800]/20">
             <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
               <div className="w-2 h-8 bg-gradient-to-b from-[#ff8800] to-[#ff6600] rounded-full mr-3"></div>
               {t('purchaseProcess')}
             </h2>
             <ol className="space-y-3">
-              {[1, 2, 3, 4, 5].map((step) => (
-                <li key={step} className="flex items-start space-x-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-sm font-bold">
-                    {step}
-                  </span>
-                  <span className="text-gray-300 leading-relaxed">{t(`purchaseStep${step}`)}</span>
-                </li>
-              ))}
+              <li className="flex items-start space-x-3">
+                <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                <span className="text-gray-300 leading-relaxed">{t('purchaseStep1')}</span>
+              </li>
+              <li className="flex items-start space-x-3">
+                <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                <span className="text-gray-300 leading-relaxed">{t('purchaseStep2')}</span>
+              </li>
+              <li className="flex items-start space-x-3">
+                <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                <span className="text-gray-300 leading-relaxed">{t('purchaseStep3')}</span>
+              </li>
+              <li className="flex items-start space-x-3">
+                <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                <span className="text-gray-300 leading-relaxed">{t('purchaseStep4')}</span>
+              </li>
+              <li className="flex items-start space-x-3">
+                <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-[#ff8800] to-[#ff6600] text-white rounded-full flex items-center justify-center text-sm font-bold">5</span>
+                <span className="text-gray-300 leading-relaxed">{t('purchaseStep5')}</span>
+              </li>
             </ol>
           </div>
         </div>
