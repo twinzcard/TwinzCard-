@@ -5,9 +5,10 @@ import { getCardById } from '../data/cardsData';
 import { ArrowLeft, ExternalLink, Check, ShoppingCart } from 'lucide-react';
 
 const CardDetail = () => {
-  const { id } = useParams();
+  const params = useParams();
+  const cardId = params.id;
   const { t } = useTranslation();
-  const card = getCardById(id);
+  const card = getCardById(cardId);
   const [selectedAmount, setSelectedAmount] = useState(null);
 
   if (!card) {
@@ -15,7 +16,6 @@ const CardDetail = () => {
   }
 
   const handleBuyNow = () => {
-    // Redirect to affiliate link
     window.open(card.affiliateLink, '_blank', 'noopener,noreferrer');
   };
 
