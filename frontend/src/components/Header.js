@@ -11,10 +11,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { path: '/', label: t('home') },
-    { path: '/privacy', label: t('privacy') },
-    { path: '/terms', label: t('terms') },
-    { path: '/affiliate', label: t('affiliateRules') }
+    { path: '/', label: t('home') }
   ];
 
   const isActive = (path) => location.pathname === path;
