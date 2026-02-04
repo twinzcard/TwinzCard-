@@ -10,9 +10,7 @@ const Header = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks = [
-    { path: '/', label: t('home') }
-  ];
+  const navLinks = [];
 
   const isActive = (path) => location.pathname === path;
 
