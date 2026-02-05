@@ -15,7 +15,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#0a0a0b] border-t border-[#ff8800]/20">
+    <footer className="bg-[#0a0a0b]">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
           {/* Brand Section */}
@@ -57,7 +57,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-6 md:pt-8 border-t border-[#ff8800]/20">
+        <div className="pt-6 md:pt-8">
           <div className="flex flex-col md:flex-row justify-center items-center text-center">
             <p className="text-gray-400 text-xs md:text-sm">
               © {currentYear} {t('siteName')}. {t('allRightsReserved')}
